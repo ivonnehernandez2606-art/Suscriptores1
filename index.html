@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Suscripción</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef2f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .formulario {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 320px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .terminos {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .terminos input {
+            margin-right: 8px;
+        }
+
+        button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .mensaje {
+            margin-top: 10px;
+            text-align: center;
+            color: green;
+            display: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <form class="formulario" id="formulario">
+        <h2>Suscripción</h2>
+
+        <label for="correo">Correo electrónico</label>
+        <input 
+            type="email" 
+            id="correo" 
+            name="correo" 
+            placeholder="ejemplo@correo.com" 
+            required>
+
+        <div class="terminos">
+            <input 
+                type="checkbox" 
+                id="terminos" 
+                name="terminos" 
+                required>
+            <label for="terminos">Acepto los términos y condiciones</label>
+        </div>
+
+        <button type="submit">Suscribirse</button>
+
+        <p id="mensaje" class="mensaje">✅ Se ha suscrito correctamente</p>
+    </form>
+
+    <script>
+        const formulario = document.getElementById("formulario");
+        const mensaje = document.getElementById("mensaje");
+
+        formulario.addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            mensaje.style.display = "block";
+            formulario.reset();
+        });
+    </script>
+
+</body>
+</html>
